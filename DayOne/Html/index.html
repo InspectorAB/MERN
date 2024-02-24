@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        .buttonColor{
+            background-color: aqua;
+            font-size:1em;
+        }
+        .inputUname{
+            background-color: antiquewhite;
+        }
+        .errorForm{
+            font-style: italic;
+            color:red; 
+        }
+    </Style>
+</head>
+<body>
+    <form name="demoForm">
+        <div id="errorForm" >
+            Form
+            <span id="errorForm1" class="errorForm"></span>
+        </div>
+        <input class="inputUname" type="text" name="uname" id="uname"/>
+        <button class="buttonColor" type="button" onclick="checkValue()" onload="removeValue()">Check</button>
+    </form>
+    <script type="text/javascript" src="./demo.js"/>
+
+</body>
+</html>
