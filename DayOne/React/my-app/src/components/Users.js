@@ -1,5 +1,6 @@
 import { Component } from "react";
 import User from "./User";
+import GetData from "./GetData";
 
 export default class Users extends Component{
     render(){
