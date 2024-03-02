@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import MainApp from './components/MainApp';
 
+
+//const bind = fetct()
 // fetch('https://jsonplaceholder.typicode.com/users')
 // .then((response) => {
 //     return response.json()
