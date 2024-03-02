@@ -36,3 +36,14 @@ const promiseThree = new Promise(async function(resolve,reject){
     console.log(data);
 })
 .catch((error) => console.log(error))
+
+
+// E.S 6.0
+//Arrow function
+//Object or Array destructuring(introduction of let and cons keyword)
+// Asyc, Await, callback
+
+// to run javascript code in cross browser
+// it requires transpiler -> babeljs
+// bundling
+
