@@ -1,30 +1,59 @@
 import { Component } from "react";
-import HeaderApp from "./HeaderApp";
-import FooterApp from "./FooterApp";
+import Header from "./HeaderApp";
+import Footer from "./FooterApp";
 import AddUser from "./AddUser";
 import Users from "./Users";
 
-
-
-
-
-
 export default class MainApp extends Component{
 
-    render(){
-        const headerData = 'Welcome to header'
-        const footerData = 'Welcome to footer'
-        const userData = ["Admin","Manger","QA"]
+    state={
+          headerData:'Welcome to Header',
+         footerData:'Welcome to Footer',
+         userData:[]
+    }
+// adding the user
 
-        return(
+addUser=(data)=>{
+    this.setState((prevState)=>{
+
+        return{
+            userData:prevState.userData.concat(data)
+        }
+    })
+}
+//delete all
+
+deleteAll=()=>{
+    this.setState(()=>{
+        return {
+            userData:[]
+        }
+    })
+}
+// delete single
+
+deleteOne=(user)=>{
+ this.setState((prevState)=>{
+     return{
+         userData:prevState.userData.filter((us) => user !== us)
+     }
+ })
+}
+render(){
+      return(
             <div>
-                <HeaderApp hdata={headerData}/>
-                <p> Main App Component</p>
-                <AddUser/>
-                <Users uData={userData}/>
-                <FooterApp fdata={footerData}/>
+                <Users udata={this.state.userData}
+                da={this.deleteAll}
+                hasData={this.state.userData.length > 0}
+                dOne={this.deleteOne}
+                />
+                <Header hdata={this.state.headerData}/>
+                <p>MainApp Component</p>
+                <AddUser au={this.addUser}/>
+                <Footer fdata={this.state.footerData}/>
             </div>
+           
         )
     }
-
 }
+

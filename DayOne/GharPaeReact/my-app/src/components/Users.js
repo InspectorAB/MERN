@@ -1,21 +1,16 @@
-
 import { Component } from "react";
 import User from "./User";
-
-
-
+import GetData from "./GetData";
 
 export default class Users extends Component{
-
     render(){
         return(
             <div>
                 {
-                    this.props.udata.map((ud) =>  <User key={ud} userNew={ud} duser={this.props.dOne}/>)
+                    this.props.uData.map((ud) => <User userNew={ud}/>)
                 }
-              <button disabled={!this.props.hasData} onClick={this.props.da}>DeleteAll</button>
+                <GetData/>
             </div>
-           
         )
     }
 }
