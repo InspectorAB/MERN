@@ -11,9 +11,12 @@ export default class GetData extends Component{
         };
       }
     
+
+      //lifecycle function
       componentDidMount() {
         this.fetchData();
       }
+
     
       fetchData = () => {
         fetch('https://jsonplaceholder.typicode.com/users')

@@ -1,13 +1,14 @@
-import { Component } from "react";
 
 
-export default class HeaderApp extends Component{
-    render(){
-        return(
+// no lifecycle here and no state
+// makes it faster
 
-            <div>{this.props.hdata}</div>
-        )          
-
-    
-    }
+function Header(props){
+    return (
+        <div>
+            <p>{props.data}</p>
+        </div>
+    )
 }
+
+export default Header;

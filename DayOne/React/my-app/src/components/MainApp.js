@@ -6,6 +6,39 @@ import Users from "./Users";
 
 export default class MainApp extends Component{
 
+    //presentation components are only designed for only one component 
+    //for a particular component on the UI
+    // somebody else has to provide state and data
+
+    // called only once
+    componentDidMount(){
+        console.log("during launch");
+        const json = localStorage.getItem('users')
+        const userData = JSON.parse(json)
+        if(userData){
+            this.setState(() =>{
+                return{
+                    userData:userData
+                }
+            })
+        }
+    }
+
+    //local storage capacity is 4 MB
+    // cookie is 4KB
+
+    // called every time when state changes
+
+    // stringify to persist data
+    // parse to display
+    componentDidUpdate(){
+        const json = JSON.stringify(this.state.userData);
+        localStorage.setItem("users",json);
+        console.log("update");
+    }
+
+
+
     state={
           headerData:'Welcome to Header',
          footerData:'Welcome to Footer',

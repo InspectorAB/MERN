@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import MainApp from './components/MainApp';
+import RestApp from './components/RestApp';
+import GetData from './components/GetData';
 
 
 //const bind = fetct()
@@ -18,6 +20,7 @@ function App() {
     <div className="App">
    <p>Hello World</p>
    <MainApp/>
+   <RestApp/>
     </div>
   );
 }
