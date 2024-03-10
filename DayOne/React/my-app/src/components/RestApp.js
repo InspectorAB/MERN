@@ -11,12 +11,14 @@ export default class RestApp extends Component {
     .get(URL)
     .then(response => response.data)
     .then(data => {
+      this.setState({data: data});
         console.log(data);
     });
   }
 
 
   render() {
+    const data = this.state;
     return (
       <div>RestApp</div>
     )

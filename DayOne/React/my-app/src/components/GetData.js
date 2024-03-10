@@ -1,4 +1,5 @@
 import { Component } from "react";
+import ShowData from "./ShowData";
 
 
 export default class GetData extends Component{
@@ -41,14 +42,15 @@ export default class GetData extends Component{
         return (
           <div>
             <h1>User List</h1>
-            <ul>
+            <ShowData sdata={users}/>
+            {/* <ul>
               {users.map(user => (
                 <li key={user.id}>
                   <strong>Name:</strong> {user.name}, <strong>Email:</strong> {user.email}
                   ,<strong>UserName:</strong> {user.username}
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         );
       }
