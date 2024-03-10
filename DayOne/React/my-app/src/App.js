@@ -21,6 +21,7 @@ function App() {
    <p>Hello World</p>
    <MainApp/>
    <RestApp/>
+   <GetData/>
     </div>
   );
 }

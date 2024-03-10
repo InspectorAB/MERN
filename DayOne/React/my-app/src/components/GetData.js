@@ -35,15 +35,8 @@ export default class GetData extends Component{
       };
     
       render() {
-        const { users, isLoading, error } = this.state;
-    
-        if (isLoading) {
-          return <div>Loading...</div>;
-        }
-    
-        if (error) {
-          return <div>Error: {error}</div>;
-        }
+        const { users, } = this.state;
+
     
         return (
           <div>
