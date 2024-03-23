@@ -3,6 +3,7 @@ import Header from "./HeaderApp";
 import Footer from "./FooterApp";
 import AddUser from "./AddUser";
 import Users from "./Users";
+import MaterialComponent from "./Material";
 
 export default class MainApp extends Component{
 
@@ -84,6 +85,7 @@ render(){
                 <p>MainApp Component</p>
                 <AddUser au={this.addUser}/>
                 <Footer fdata={this.state.footerData}/>
+                <MaterialComponent/>
             </div>
            
         )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Demo2 from './Demo2';
 
 function Demo1() {
@@ -13,6 +13,13 @@ function Demo1() {
         setCount(count-1)
         localStorage.setItem('count',count);
     }
+    useEffect(() => {
+      console.log('pn load');
+    },[])
+
+    useEffect(() => {
+      console.log('on update');
+    },[count]);
 
 
 

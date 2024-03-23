@@ -1,43 +1,61 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from 'react';
+import { TextField, Button, Card, CardHeader, CardContent } from '@mui/material';
 
-export default function Demo2(props) {
+const YourComponent = () => {
   const [users, setUsers] = useState([]);
-  const [email, setEmail] = useState("");
-  const [uname, setUname] = useState("");
+  const [uname, setUname] = useState('');
+  const [email, setEmail] = useState('');
 
-  const addusers = (e) => {
+  useEffect(() => {
+    localStorage.setItem('gfg',JSON.stringify(users));
+    console.log('gfg');
+  })
+
+  const addUsers = (e) => {
     e.preventDefault();
     setUsers([...users, { uname, email }]);
+    setUname('');
+    setEmail('');
   };
 
   const deleteOne = (uname) => {
-        setUsers(users.filter((note) => note.uname !== uname))
-  }
+    setUsers(users.filter(user => user.uname !== uname));
+  };
 
   return (
-    <div >
-      {users.map((data) => (
-        <div className="text-capitalize"  key={data.uname}>
-          {data.uname} --- {data.email} --- <button className="btn-primary" onClick={() => deleteOne(data.uname)} >Delete</button>
-        </div>
-      ))}
-      <form className="card-header form-control" onSubmit={addusers}>
-        <input
-          className="card-body"
-          type="text"
-          placeholder="Enter Username"
-          value={uname}
-          onChange={(e) => setUname(e.target.value)}
-        />
-        <input
-          className="card-body"
-          type="text"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button className="btn btn-primary">Add Users</button>
-      </form>
-    </div>
+    <Card variant="outlined">
+      <CardHeader title="User List" />
+      <CardContent>
+        {users.map((data) => (
+          <div className="text-capitalize" key={data.uname}>
+            {data.uname} --- {data.email} --- 
+            <Button variant="contained" color="primary" onClick={() => deleteOne(data.uname)}>Delete</Button>
+          </div>
+        ))}
+        <form onSubmit={addUsers}>
+          <TextField
+            label="Enter Username"
+            variant="outlined"
+            value={uname}
+            onChange={(e) => setUname(e.target.value)}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Enter Email"
+            variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            fullWidth
+            margin="normal"
+          />
+          <Button variant="contained" color="primary" type="submit">
+            Add Users
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   );
-}
+};
+
+export default YourComponent;
