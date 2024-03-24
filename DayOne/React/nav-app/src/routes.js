@@ -6,11 +6,10 @@ import UserDetails from "./Components/UserDetails";
 
 
 export const appRoutes = [
-    {path:'/',element:<HomePage/>},
-    {path:'/Login',element:<Login/>},
-    {path:'/Registration',element:<Registration/>},
-    {path:'/UserDetails',element:<UserDetails/>},
-    {path:'/Portfolio',element:<Portfolio/>}
 
+    {path:'/',element:<Login/>},
+    {path:'/Registration',element:<Registration/>},
+    {path:'/Portfolio',element:<Portfolio/>}
 ]
 
+//how to make default route
