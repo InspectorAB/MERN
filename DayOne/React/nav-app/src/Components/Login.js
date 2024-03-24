@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const [formData, setFormData] = useState({})
-
+    
     const Navigate = useNavigate();
+    const IsLogin = localStorage.setItem('IsLogin',false);
     const handleData = (e) => {
         setFormData({
             ...formData,
@@ -20,7 +21,10 @@ export default function Login() {
         console.log(data);
         if(data.uname === formData.uname &&
             data.email === formData.email){
+            localStorage.setItem('IsLogin',true);
             Navigate('/Portfolio')
+        }else{
+            Navigate('/Registration')
         }
         
       
