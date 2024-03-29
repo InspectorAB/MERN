@@ -22,14 +22,14 @@ function Registration(props) {
 
     return (
         <div>
-
+            Please register here
             <hr/>
             <form onSubmit={addUser}>
                 <input type='text' placeholder='Enter Username' name='uname'
                     onChange={handleData}/>
                 <input type='email' placeholder='Enter Email' name='email'
                     onChange={handleData}/>
-                <button>Add User</button>
+                <button>Register User</button>
             </form>
         </div>
     );

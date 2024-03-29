@@ -1,43 +1,44 @@
-import {React,useEffect} from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
-export default function Navbar() {
-  const Navigate = useNavigate();
-  const isLogin = localStorage.getItem("IsLogin");
-  console.log('====================================');
-  console.log(isLogin);
-  console.log('====================================');
-// check when logged in , useeffect
+const Navbar = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const Navigate = useNavigate();
+    useEffect(() => {
+      const isUserLoggedIn = localStorage.getItem('IsLogin');
+      setIsLoggedIn(isUserLoggedIn === 'true');
+    }); 
+    const handleLogout = () => {
+        localStorage.removeItem("IsLogin");
+        Navigate('/');
+      };
   return (
     <div>
-      {isLogin ? (
+      {isLoggedIn ? (
         <ul className="nav nav-tabs">
-         <li className="nav-item">
-           <a className="nav-link active" aria-current="page" href="#">
-             <Link to=""> Login</Link>
-           </a>
-         </li>
-         <li className="nav-item">
-           <a className="nav-link" href="#">
-             <Link to="Registration"> Registration</Link>
-           </a>
-         </li>
-       </ul>
-        
+          <li className="nav-item">
+            <Link className="nav-link" to="/Portfolio"> Portfolio</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link disabled" aria-disabled="true" to="/UserDetails"> User Details</Link>
+          </li>
+          <li className="nav-item">
+            <button className="red btn" onClick={handleLogout}>Logout</button>
+          </li>
+        </ul>
       ) : (
         <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            <Link to="Portfolio"> Portfolio</Link>
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" aria-disabled="true">
-            <Link to="HomePage"> HomePage</Link>
-          </a>
-        </li>
-              </ul>)}
+          <li className="nav-item">
+            <Link className="nav-link active" aria-current="page" to=""> Login</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/Registration"> Registration</Link>
+          </li>
+        </ul>
+      )}
     </div>
   );
-}
+};
+
+export default Navbar;

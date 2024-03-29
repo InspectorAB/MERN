@@ -9,7 +9,8 @@ export const appRoutes = [
 
     {path:'/',element:<Login/>},
     {path:'/Registration',element:<Registration/>},
-    {path:'/Portfolio',element:<Portfolio/>}
+    {path:'/Portfolio',element:<Portfolio/>},
+    {path:'/UserDetails',element:<UserDetails/>}
 ]
 
 //how to make default route
