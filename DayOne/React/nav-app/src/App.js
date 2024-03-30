@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 
 function App() {
   const element = useRoutes(appRoutes);
-  const [isLogged, setLoggedIn] = useState(localStorage.getItem('IsLogin'));
+  // const [isLogged, setLoggedIn] = useState(localStorage.getItem('IsLogin'));
  
   return (
     <div className="App">

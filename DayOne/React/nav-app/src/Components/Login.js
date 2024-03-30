@@ -18,10 +18,10 @@ export default function Login() {
         const data = JSON.parse(userData);
         
         if(data && data.uname === formData.uname && data.email === formData.email) {
-            localStorage.setItem('IsLogin', 'true'); // Update IsLogin to 'true'
+            localStorage.setItem('IsLogin', 'true'); 
             navigate('/Portfolio');
         } else {
-            localStorage.removeItem('IsLogin'); // Remove IsLogin if login fails
+            localStorage.removeItem('IsLogin'); 
             navigate('/Registration');
         }
     };
