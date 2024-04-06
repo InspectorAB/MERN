@@ -1,5 +1,8 @@
 import React, { useState,useEffect } from 'react';
 import { TextField, Button, Card, CardHeader, CardContent } from '@mui/material';
+import axios from "axios";
+
+const URL = "http://localhost:4000/adduser";
 
 const YourComponent = () => {
   const [users, setUsers] = useState([]);
@@ -13,9 +16,15 @@ const YourComponent = () => {
 
   const addUsers = (e) => {
     e.preventDefault();
-    setUsers([...users, { uname, email }]);
-    setUname('');
-    setEmail('');
+        axios
+        .post(URL,{uname,email})
+        .then(response => response.data)
+        .then(data => {
+          setUsers([...users, { uname, email }]);
+          setUname('');
+          setEmail('');
+        });
+
   };
 
   const deleteOne = (uname) => {

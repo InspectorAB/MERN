@@ -1,6 +1,6 @@
 import React, {  useEffect,useState } from 'react'
 import axios from "axios";
-const URL = "https://jsonplaceholder.typicode.com/users";
+const URL = "http://localhost:4000/loadusers";
 
 const RestApp2 = () => {
 
